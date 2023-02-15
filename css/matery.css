@@ -34,6 +34,11 @@
 }
 
 body {
+    background: url('../bg.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     background-color: #eaeaea;
     margin: 0;
     color: #34495e;
