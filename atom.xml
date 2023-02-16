@@ -6,7 +6,7 @@
   <link href="https://zdragonl.github.io/atom.xml" rel="self"/>
   
   <link href="https://zdragonl.github.io/"/>
-  <updated>2023-02-14T16:16:39.905Z</updated>
+  <updated>2023-02-16T05:18:12.823Z</updated>
   <id>https://zdragonl.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>浏览器的同源策略</title>
+    <link href="https://zdragonl.github.io/2023/02/16/liu-lan-qi-de-tong-yuan-ce-lue/"/>
+    <id>https://zdragonl.github.io/2023/02/16/liu-lan-qi-de-tong-yuan-ce-lue/</id>
+    <published>2023-02-16T05:10:13.000Z</published>
+    <updated>2023-02-16T05:18:12.823Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;什么是同源策略&quot;&gt;&lt;a href=&quot;#什么是同源策略&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="NetWork" scheme="https://zdragonl.github.io/categories/NetWork/"/>
+    
+    
+    <category term="网络" scheme="https://zdragonl.github.io/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>第一篇文章</title>
