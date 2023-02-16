@@ -6,7 +6,7 @@
   <link href="https://zdragonl.github.io/atom.xml" rel="self"/>
   
   <link href="https://zdragonl.github.io/"/>
-  <updated>2023-02-16T05:18:12.823Z</updated>
+  <updated>2023-02-16T16:03:26.529Z</updated>
   <id>https://zdragonl.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>闭包及其面试题</title>
+    <link href="https://zdragonl.github.io/2023/02/16/bi-bao-ji-qi-mian-shi-ti/"/>
+    <id>https://zdragonl.github.io/2023/02/16/bi-bao-ji-qi-mian-shi-ti/</id>
+    <published>2023-02-16T15:59:04.000Z</published>
+    <updated>2023-02-16T16:03:26.529Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-闭包是什么？&quot;&gt;&lt;a href=&quot;#1-闭包是什么？&quot; class=&quot;headerlink&quot; title=&quot;1.闭包是什么？&quot;&gt;&lt;/a&gt;1.闭包是什么？&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;闭包是js的一种语法特性。</summary>
+        
+      
+    
+    
+    
+    <category term="前端" scheme="https://zdragonl.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="js" scheme="https://zdragonl.github.io/tags/js/"/>
+    
+    <category term="闭包" scheme="https://zdragonl.github.io/tags/%E9%97%AD%E5%8C%85/"/>
+    
+  </entry>
+  
+  <entry>
     <title>浏览器的同源策略</title>
     <link href="https://zdragonl.github.io/2023/02/16/liu-lan-qi-de-tong-yuan-ce-lue/"/>
     <id>https://zdragonl.github.io/2023/02/16/liu-lan-qi-de-tong-yuan-ce-lue/</id>
     <published>2023-02-16T05:10:13.000Z</published>
-    <updated>2023-02-16T05:18:12.823Z</updated>
+    <updated>2023-02-16T06:03:20.910Z</updated>
     
     
       
@@ -38,19 +66,6 @@
     
     
     <category term="网络" scheme="https://zdragonl.github.io/tags/%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第一篇文章</title>
-    <link href="https://zdragonl.github.io/2023/02/14/di-yi-pian-wen-zhang/"/>
-    <id>https://zdragonl.github.io/2023/02/14/di-yi-pian-wen-zhang/</id>
-    <published>2023-02-14T13:56:28.000Z</published>
-    <updated>2023-02-14T16:16:39.905Z</updated>
-    
-    
-    
-    
     
   </entry>
   
