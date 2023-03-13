@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="浏览器的同源策略, HTML,CSS,JavaScript,Vue,React,Webpack,ThreeJs,Jquery等">
-    <meta name="description" content="本文讲述了浏览器的同源策略，跨域问题和解决跨域问题的方法">
+    <meta name="keywords" content="js中forin和forof, HTML,CSS,JavaScript,Vue,React,Webpack,ThreeJs,Jquery等">
+    <meta name="description" content="本文讲述了forin和forof的用法和区别，同时还有一些注意点">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>浏览器的同源策略 | 幽静竹屋</title>
+    <title>js中forin和forof | 幽静竹屋</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -462,12 +462,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">浏览器的同源策略</h1>
+                    <h1 class="description center-align post-title">js中forin和forof</h1>
                 </div>
             </div>
         </div>
@@ -491,8 +491,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%BD%91%E7%BB%9C/">
-                                <span class="chip bg-color">网络</span>
+                            <a href="/tags/js-%E5%BE%AA%E7%8E%AF-%E5%9F%BA%E7%A1%80/">
+                                <span class="chip bg-color">-- js -- 循环 -- 基础</span>
                             </a>
                         
                     </div>
@@ -503,8 +503,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/NetWork/" class="post-category">
-                                NetWork
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                -- 前端
                             </a>
                         
                     </div>
@@ -516,21 +516,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-02-16
+                    2023-03-13
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-16
+                    2023-03-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    982
+                    414
                 </div>
                 
 
@@ -555,30 +555,87 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="什么是同源策略"><a href="#什么是同源策略" class="headerlink" title="什么是同源策略"></a>什么是同源策略</h1><p>同源策略是一个重要的安全策略，它用于限制一个origin（源）的文档或者它加载的脚本如何能与另一个源的资源进行交互。它能帮助阻隔恶意文档，减少可能被攻击的媒介。</p>
-<h1 id="什么是同源"><a href="#什么是同源" class="headerlink" title="什么是同源"></a>什么是同源</h1><p>浏览器的源由用于访问它的 URL 的方案（协议（protocol））、主机名（域名（port））和端口（host）定义。只有当协议、主机和端口都匹配时，两个对象才具有相同的源, 则这两个 URL 是同源.</p>
-<p>下面给出了与 URL <code>http://store.company.com/dir/page.html</code> 的源进行对比的示例：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token constant">URL</span>	结果	原因
-<span class="token literal-property property">http</span><span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>store<span class="token punctuation">.</span>company<span class="token punctuation">.</span>com<span class="token operator">/</span>dir2<span class="token operator">/</span>other<span class="token punctuation">.</span>html	同源	只有路径不同
-<span class="token literal-property property">http</span><span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>store<span class="token punctuation">.</span>company<span class="token punctuation">.</span>com<span class="token operator">/</span>dir<span class="token operator">/</span>inner<span class="token operator">/</span>another<span class="token punctuation">.</span>html	同源	只有路径不同
-<span class="token literal-property property">https</span><span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>store<span class="token punctuation">.</span>company<span class="token punctuation">.</span>com<span class="token operator">/</span>secure<span class="token punctuation">.</span>html	失败	协议不同
-<span class="token literal-property property">http</span><span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>store<span class="token punctuation">.</span>company<span class="token punctuation">.</span>com<span class="token operator">:</span><span class="token number">81</span><span class="token operator">/</span>dir<span class="token operator">/</span>etc<span class="token punctuation">.</span>html	失败	<span class="token function">端口不同</span> <span class="token punctuation">(</span> http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span> 默认端口是 <span class="token number">80</span><span class="token punctuation">)</span>
-<span class="token literal-property property">http</span><span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>news<span class="token punctuation">.</span>company<span class="token punctuation">.</span>com<span class="token operator">/</span>dir<span class="token operator">/</span>other<span class="token punctuation">.</span>html	失败	主机不同<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><p>CORS全称Cross-Origin Resource Sharing，意为跨域资源共享。当一个请求url的协议,域名,端口三者之间任意一个与当前的url不同都即为跨域。跨域不一定会产生跨域问题，只有当一个资源去访问另一个不同域名或者同域名不同端口的资源时，如果此时另一个资源不允许其进行跨域资源访问，那么访问就会遇到跨域问题。</p>
-<p>跨域时浏览器会正常发送请求给服务器，服务器会进行正常响应，将响应结果发送给浏览器，如果是跨域，此时浏览器会对响应进行校验，只有在校验不通过时，才会引发错误，从而产生跨域问题。<img src="https://img-blog.csdnimg.cn/7f50ffca72a04d49b2b397f3390a19c5.jpeg#pic_center" alt="在这里插入图片描述"><br>注意：<br>跨域问题源自于浏览器的同源策略，服务器与服务器之间通信不会有跨域。<br>跨域不只是在发生ajax过程中，只要不是同源请求都是跨域。比如用<br><code>&lt;script&gt;、&lt; link&gt;、&lt;img&gt;</code>等嵌入跨源的资源。</p>
-<h1 id="跨域解决方法"><a href="#跨域解决方法" class="headerlink" title="跨域解决方法"></a>跨域解决方法</h1><h2 id="1-CORS方式"><a href="#1-CORS方式" class="headerlink" title="1.CORS方式"></a>1.CORS方式</h2><p>CORS （跨源资源共享） 是 HTTP 的一部分，它允许服务端来指定哪些主机可以从这个服务端加载资源。现在的主流的浏览器都支持cors的方式.。<br>CORS 通过一种机制来允许服务器声明哪些源站通过浏览器有权限访问哪些资源，该机制通过浏览器发起一个到服务器托管的跨源资源的“预检”请求。在预检中，浏览器发送的头中标示有 HTTP 方法和真实请求中会用到的响应头。<br>所以，如果需要跨域, 则需要配置响应头信息，标识是否允许。</p>
-<p>对于简单请求来说，不会触发 CORS 预检。<br><code>HEAD、GET、POST</code> 被视为简单请求。<br>简单请求HTTP 的头信息不超出以下几种字段：（<strong>不适用于Fetch</strong> ）</p>
-<ul>
-<li>Accept</li>
-<li>Accept-Language</li>
-<li>Content-Language</li>
-<li>Last-Event-ID</li>
-<li>Content-Type：只限于三个值 application/x-www-form-urlencoded、multipart/form-data、text/plain</li>
-</ul>
-<p>会触发 CORS 预检的非简单请求（比如说请求方法是 <code>PUT</code> 或 <code>DELETE</code>，或者 <code>Content-Type</code> 字段的类型是 <code>application/json</code>，或者请求消息头包含了一些自定义的字段）</p>
-<p>非简单请求在正式通信之前，会增加一次 HTTP 查询请求，称为“预检”请求。预检请求通过后，才会返回正常的响应内容。<br><img src="https://img-blog.csdnimg.cn/6c9ea05fe0a64450b4d85b9197e866ba.png" alt="在这里插入图片描述"></p>
-<h2 id="2-ajax的jsonp"><a href="#2-ajax的jsonp" class="headerlink" title="2.ajax的jsonp"></a>2.ajax的jsonp</h2><p>利用 <code>&lt;script&gt;</code> 元素的这个开放策略，网页可以得到从其他来源动态产生的 JSON 资料。</p>
-<h2 id="3-nginx"><a href="#3-nginx" class="headerlink" title="3. nginx"></a>3. nginx</h2><p>nginx实现跨域的原理，实际就是把web项目和后端接口项目放到一个域中，这样就不存在跨域问题，然后根据请求地址去请求不同服务器（真正干活的服务器。</p>
+                <h1 id="for…in"><a href="#for…in" class="headerlink" title="for…in"></a>for…in</h1><blockquote>
+<p>for…in 语句以任意顺序迭代一个对象的除Symbol以外的可枚举属性，包括继承的可枚举属性。</p>
+</blockquote>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">a</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">b</span><span class="token operator">:</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token literal-property property">c</span><span class="token operator">:</span><span class="token number">3</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> prop <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"obj."</span> <span class="token operator">+</span> prop <span class="token operator">+</span> <span class="token string">" = "</span> <span class="token operator">+</span> obj<span class="token punctuation">[</span>prop<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Output:</span>
+<span class="token comment">// "obj.a = 1"</span>
+<span class="token comment">// "obj.b = 2"</span>
+<span class="token comment">// "obj.c = 3"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>也可以遍历字符串和数组</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span>
+<span class="token keyword">let</span> s <span class="token operator">=</span> <span class="token string">'skl'</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> prop <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span><span class="token function">at</span><span class="token punctuation">(</span>prop<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// output: 1,2,5</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> prop <span class="token keyword">in</span> s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">at</span><span class="token punctuation">(</span>prop<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// output: s,k,l</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="for…of"><a href="#for…of" class="headerlink" title="for…of"></a>for…of</h1><blockquote>
+<p>for…of语句在可迭代对象（包括 Array，Map，Set，String，TypedArray，arguments<br>对象等等）上创建一个迭代循环，调用自定义迭代钩子，并为每个不同属性的值执行语句</p>
+</blockquote>
+<h2 id="迭代Array"><a href="#迭代Array" class="headerlink" title="迭代Array"></a>迭代Array</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> iterable <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> value <span class="token keyword">of</span> iterable<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    value <span class="token operator">+=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 11</span>
+<span class="token comment">// 21</span>
+<span class="token comment">// 31</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="迭代String"><a href="#迭代String" class="headerlink" title="迭代String"></a>迭代String</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> iterable <span class="token operator">=</span> <span class="token string">"boo"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> value <span class="token keyword">of</span> iterable<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// "b"</span>
+<span class="token comment">// "o"</span>
+<span class="token comment">// "o"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="for…of与for…in的区别"><a href="#for…of与for…in的区别" class="headerlink" title="for…of与for…in的区别"></a>for…of与for…in的区别</h1><blockquote>
+<p>无论是for…in还是for…of语句都是迭代一些东西。它们之间的主要区别在于它们的迭代方式。</p>
+<p>for…in 语句以任意顺序迭代对象的可枚举属性。</p>
+<p>for…of 语句遍历可迭代对象定义要迭代的数据。</p>
+</blockquote>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">objCustom</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token class-name">Array</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">arrCustom</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> iterable <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+iterable<span class="token punctuation">.</span>foo <span class="token operator">=</span> <span class="token string">'hello'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token keyword">in</span> iterable<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// logs 0, 1, 2, "foo", "arrCustom", "objCustom"</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token keyword">in</span> iterable<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>iterable<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// logs 0, 1, 2, "foo"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token keyword">of</span> iterable<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// logs 3, 5, 7</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">let</span> prop <span class="token operator">=</span> <span class="token string">'kljh'</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> prop <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span><span class="token function">at</span><span class="token punctuation">(</span>prop<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 此时output: undefined,undefined,undefined,undefined</span>
+<span class="token comment">// 此时 prop 为字符串 typeof prop = string</span>
+<span class="token comment">// 此时要获取下一个属性， 将prop转换成number类型， +prop</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> prop <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span><span class="token function">at</span><span class="token punctuation">(</span><span class="token operator">+</span>prop<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// output: i,j,,h,undefined</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -605,7 +662,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://zdragonl.github.io/2023/02/16/liu-lan-qi-de-tong-yuan-ce-lue/">https://zdragonl.github.io/2023/02/16/liu-lan-qi-de-tong-yuan-ce-lue/</a>
+                    <a href="https://zdragonl.github.io/2023/03/13/js-zhong-forin-he-forof/">https://zdragonl.github.io/2023/03/13/js-zhong-forin-he-forof/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -643,8 +700,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%BD%91%E7%BB%9C/">
-                                    <span class="chip bg-color">网络</span>
+                                <a href="/tags/js-%E5%BE%AA%E7%8E%AF-%E5%9F%BA%E7%A1%80/">
+                                    <span class="chip bg-color">-- js -- 循环 -- 基础</span>
                                 </a>
                             
                         </div>
@@ -723,88 +780,36 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/02/16/bi-bao-ji-qi-mian-shi-ti/">
+                <a href="/2023/03/13/js-zhong-forin-he-forof/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="闭包及其面试题">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="js中forin和forof">
                         
-                        <span class="card-title">闭包及其面试题</span>
+                        <span class="card-title">js中forin和forof</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            详细讲解了js中的闭包，及其相关知识
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-02-16
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/js/">
-                        <span class="chip bg-color">js</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%97%AD%E5%8C%85/">
-                        <span class="chip bg-color">闭包</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/02/16/liu-lan-qi-de-tong-yuan-ce-lue/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="浏览器的同源策略">
-                        
-                        <span class="card-title">浏览器的同源策略</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            本文讲述了浏览器的同源策略，跨域问题和解决跨域问题的方法
+                            本文讲述了forin和forof的用法和区别，同时还有一些注意点
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/NetWork/" class="post-category">
-                                    NetWork
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    -- 前端
                                 </a>
                             
                             
@@ -815,8 +820,57 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BD%91%E7%BB%9C/">
-                        <span class="chip bg-color">网络</span>
+                    <a href="/tags/js-%E5%BE%AA%E7%8E%AF-%E5%9F%BA%E7%A1%80/">
+                        <span class="chip bg-color">-- js -- 循环 -- 基础</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/03/13/js-shen-kao-bei-he-qian-kao-bei/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="js深拷贝和浅拷贝">
+                        
+                        <span class="card-title">js深拷贝和浅拷贝</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            本文讲述了js深克隆和浅克隆的几种不同方法
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-03-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
+                                    -- 前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/js-%E5%AF%B9%E8%B1%A1/">
+                        <span class="chip bg-color">-- js -- 对象</span>
                     </a>
                     
                 </div>

@@ -6,7 +6,7 @@
   <link href="https://zdragonl.github.io/atom.xml" rel="self"/>
   
   <link href="https://zdragonl.github.io/"/>
-  <updated>2023-02-16T16:03:26.529Z</updated>
+  <updated>2023-03-13T02:53:39.308Z</updated>
   <id>https://zdragonl.github.io/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>js中forin和forof</title>
+    <link href="https://zdragonl.github.io/2023/03/13/js-zhong-forin-he-forof/"/>
+    <id>https://zdragonl.github.io/2023/03/13/js-zhong-forin-he-forof/</id>
+    <published>2023-03-13T02:51:41.000Z</published>
+    <updated>2023-03-13T02:53:39.308Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;for…in&quot;&gt;&lt;a href=&quot;#for…in&quot; class=&quot;headerlink&quot; title=&quot;for…in&quot;&gt;&lt;/a&gt;for…in&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;for…in</summary>
+        
+      
+    
+    
+    
+    <category term="-- 前端" scheme="https://zdragonl.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="-- js -- 循环 -- 基础" scheme="https://zdragonl.github.io/tags/js-%E5%BE%AA%E7%8E%AF-%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js深拷贝和浅拷贝</title>
+    <link href="https://zdragonl.github.io/2023/03/13/js-shen-kao-bei-he-qian-kao-bei/"/>
+    <id>https://zdragonl.github.io/2023/03/13/js-shen-kao-bei-he-qian-kao-bei/</id>
+    <published>2023-03-13T02:42:11.000Z</published>
+    <updated>2023-03-13T02:50:41.337Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/e5424f3f418446c6bdd425e77b70f794.png&quot; alt=&quot;在这里插入图片描述&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;一、数据类型存储&quot;&gt;&lt;a href=&quot;#一、数据类型存储&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="-- 前端" scheme="https://zdragonl.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+    <category term="-- js -- 对象" scheme="https://zdragonl.github.io/tags/js-%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>闭包及其面试题</title>
